@@ -35,7 +35,7 @@ public class Main {
 
             // 최종 조합 변수 초기화
             ArrayList<ArrayList> completeCombo = null;
-            completeCombo = getTableData("tbl_initial_combination");
+            completeCombo = getTableData("tbl_combination");
 
             // 제외수
             //ArrayList<Integer> exceptNumbers = new ArrayList<Integer>();
@@ -64,9 +64,9 @@ public class Main {
             // 당번 조합 제거
             completeCombo = eliminatorWon.remove(completeCombo, exceptCombo);
 
-            boolean existCombo = checkWonCombo(exceptCombo, completeCombo);
+            //boolean existCombo = checkWonCombo(exceptCombo, completeCombo);
+            //System.out.println(existCombo);
             System.out.println("당번 조합 제거 후 : " + completeCombo.size());
-            System.out.println(existCombo);
 
             // 연번 조합 제외기 생성
             OrderEliminator orderEliminator = new OrderEliminator();
@@ -77,6 +77,13 @@ public class Main {
             // 3연번 조합은 제거
             completeCombo = orderEliminator.remove(completeCombo, orderCount);
             System.out.println("연번 조합 제거 후 : " + completeCombo.size());
+
+            OverEliminator overEliminator = new OverEliminator();
+            ArrayList overCount = new ArrayList();
+            overCount.add(4);
+            // 한 번대에 4개 이상인 조합 제거
+            completeCombo = overEliminator.remove(completeCombo, overCount);
+            System.out.println("한 번대에 4개 이상인 조합 제거 후 : " + completeCombo.size());
 
             // 필터 조합 제외기 생성
             FilterEliminator filterEliminator = new FilterEliminator();
@@ -139,15 +146,116 @@ public class Main {
             filterNumbers.add(40);
             filterNumbers.add(44);
             completeCombo = filterEliminator.remove(completeCombo, filterNumbers, 1, 3);
+            System.out.println("합성수 조합 제거 후 : " + completeCombo.size());
+
+            filterNumbers = new ArrayList();
+            //06, 09, 12, 21, 13, 31, 14, 41, 23, 32, 24, 42, 34, 43
+            filterNumbers.add(6);
+            filterNumbers.add(9);
+            filterNumbers.add(12);
+            filterNumbers.add(21);
+            filterNumbers.add(13);
+            filterNumbers.add(31);
+            filterNumbers.add(14);
+            filterNumbers.add(41);
+            filterNumbers.add(23);
+            filterNumbers.add(32);
+            filterNumbers.add(24);
+            filterNumbers.add(42);
+            filterNumbers.add(34);
+            filterNumbers.add(43);
+            completeCombo = filterEliminator.remove(completeCombo, filterNumbers, 1, 3);
+            System.out.println("동형수 조합 제거 후 : " + completeCombo.size());
+
+            filterNumbers = new ArrayList();
+            // 04,08,12,16,20,24,28,32,36,40,44
+            filterNumbers.add(4);
+            filterNumbers.add(8);
+            filterNumbers.add(12);
+            filterNumbers.add(16);
+            filterNumbers.add(20);
+            filterNumbers.add(24);
+            filterNumbers.add(28);
+            filterNumbers.add(32);
+            filterNumbers.add(36);
+            filterNumbers.add(40);
+            filterNumbers.add(44);
+            completeCombo = filterEliminator.remove(completeCombo, filterNumbers, 1, 3);
+            System.out.println("4배수 조합 제거 후 : " + completeCombo.size());
+
+            filterNumbers = new ArrayList();
+            // 05,10,15,20,25,30,35,40,45
+            filterNumbers.add(5);
+            filterNumbers.add(10);
+            filterNumbers.add(15);
+            filterNumbers.add(20);
+            filterNumbers.add(25);
+            filterNumbers.add(30);
+            filterNumbers.add(35);
+            filterNumbers.add(40);
+            filterNumbers.add(45);
+            completeCombo = filterEliminator.remove(completeCombo, filterNumbers, 1, 3);
+            System.out.println("5배수 조합 제거 후 : " + completeCombo.size());
+
+            filterNumbers = new ArrayList();
+            // 01,03,04,06,10,15,21,28,36,45
+            filterNumbers.add(1);
+            filterNumbers.add(3);
+            filterNumbers.add(4);
+            filterNumbers.add(6);
+            filterNumbers.add(10);
+            filterNumbers.add(15);
+            filterNumbers.add(21);
+            filterNumbers.add(28);
+            filterNumbers.add(36);
+            filterNumbers.add(45);
+            completeCombo = filterEliminator.remove(completeCombo, filterNumbers, 1, 3);
+            System.out.println("삼각수 조합 제거 후 : " + completeCombo.size());
+
+            filterNumbers = new ArrayList();
+            // 01,07,09,13,17,19,25,31,33,37,41,43
+            filterNumbers.add(1);
+            filterNumbers.add(7);
+            filterNumbers.add(9);
+            filterNumbers.add(13);
+            filterNumbers.add(17);
+            filterNumbers.add(19);
+            filterNumbers.add(25);
+            filterNumbers.add(31);
+            filterNumbers.add(33);
+            filterNumbers.add(37);
+            filterNumbers.add(41);
+            filterNumbers.add(43);
+            completeCombo = filterEliminator.remove(completeCombo, filterNumbers, 1, 3);
+            System.out.println("대각선 조합 제거 후 : " + completeCombo.size());
+
+            filterNumbers = new ArrayList();
+            //01 13 16 21 22 23 30 31 34 35 39 45
+            filterNumbers.add(1);
+            filterNumbers.add(13);
+            filterNumbers.add(16);
+            filterNumbers.add(21);
+            filterNumbers.add(22);
+            filterNumbers.add(23);
+            filterNumbers.add(30);
+            filterNumbers.add(31);
+            filterNumbers.add(34);
+            filterNumbers.add(35);
+            filterNumbers.add(39);
+            filterNumbers.add(45);
+            completeCombo = filterEliminator.remove(completeCombo, filterNumbers, 1, 3);
+            System.out.println("콜드수 조합 제거 후 : " + completeCombo.size());
+
+
+
 
             insertCombo(completeCombo);
 
-            System.out.println("합성수 조합 제거 후 : " + completeCombo.size());
 
             // 최종 조합 결과 출력
 //            printCombo(completeCombo);
 //
-            ArrayList fiveCombo = getFiveCombo(completeCombo);
+            ArrayList fiveCombo = getRandomCombo(completeCombo, 10);
             printCombo(fiveCombo);
 
             ArrayList<Integer> allEspectNumber = getEspectCombo(completeCombo);
@@ -166,9 +274,9 @@ public class Main {
         }
     }
 
-    private static ArrayList getFiveCombo(ArrayList list){
+    private static ArrayList getRandomCombo(ArrayList list, int count){
         ArrayList fiveCombo = new ArrayList();
-        for(int i=0; i<5; i++){
+        for(int i=0; i<count; i++){
             Random random = new Random();
             int randInt = (int) (Math.random() * list.size());
             fiveCombo.add(list.get(randInt));
@@ -217,13 +325,6 @@ public class Main {
                 item.add(rs.getInt("num_4"));
                 item.add(rs.getInt("num_5"));
                 item.add(rs.getInt("num_6"));
-//                item.add(rs.getInt("num_sum"));
-//                item.add(rs.getInt("num_sum_last"));
-//                item.add(rs.getInt("num_even"));
-//                item.add(rs.getInt("num_odd"));
-//                item.add(rs.getInt("num_high"));
-//                item.add(rs.getInt("num_low"));
-//                item.add(rs.getInt("num_ac"));
                 list.add(item);
             }
             st.close();
@@ -295,9 +396,12 @@ public class Main {
                     "zerock",
                     "zerock");
 
-            String query = "INSERT INTO tbl_combination (num_1, num_2, num_3, num_4, num_5, num_6) VALUES (?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO tbl_final_combination (num_1, num_2, num_3, num_4, num_5, num_6) VALUES (?, ?, ?, ?, ?, ?)";
 
             PreparedStatement preparedStmt = conn.prepareStatement(query);
+
+            PreparedStatement truncateStmt = conn.prepareStatement("truncate tbl_final_combination");
+            truncateStmt.execute();
 
             int cnt = 0;
             for (int i=0; i<completeCombo.size(); i++) {
