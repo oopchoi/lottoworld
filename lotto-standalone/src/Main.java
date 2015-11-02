@@ -489,27 +489,20 @@ public class Main {
                 int num_1 = 0, num_2 = 0, num_3 = 0, num_4 = 0, num_5 = 0, num_6 = 0;
 
                 ArrayList item = completeCombo.get(i);
-                int sum = 0;
-                for(int j=0; j<item.size(); j++){
-                    sum += (int)item.get(j);
-                }
-                //5270487
-                //if(sum>=120&&sum<=180){
-                    num_1 = (int)item.get(0);
-                    num_2 = (int)item.get(1);
-                    num_3 = (int)item.get(2);
-                    num_4 = (int)item.get(3);
-                    num_5 = (int)item.get(4);
-                    num_6 = (int)item.get(5);
-                    preparedStmt.setInt(1, num_1);
-                    preparedStmt.setInt(2, num_2);
-                    preparedStmt.setInt(3, num_3);
-                    preparedStmt.setInt(4, num_4);
-                    preparedStmt.setInt(5, num_5);
-                    preparedStmt.setInt(6, num_6);
-                    preparedStmt.execute();
-                    cnt++;
-                //}
+                num_1 = (int)item.get(0);
+                num_2 = (int)item.get(1);
+                num_3 = (int)item.get(2);
+                num_4 = (int)item.get(3);
+                num_5 = (int)item.get(4);
+                num_6 = (int)item.get(5);
+                preparedStmt.setInt(1, num_1);
+                preparedStmt.setInt(2, num_2);
+                preparedStmt.setInt(3, num_3);
+                preparedStmt.setInt(4, num_4);
+                preparedStmt.setInt(5, num_5);
+                preparedStmt.setInt(6, num_6);
+                preparedStmt.execute();
+                cnt++;
 
             }
             System.out.println("cnt:" + cnt);
@@ -540,27 +533,20 @@ public class Main {
                 int num_1 = 0, num_2 = 0, num_3 = 0, num_4 = 0, num_5 = 0, num_6 = 0;
 
                 ArrayList item = (ArrayList)completeCombo.get(i);
-                int sum = 0;
-                for(int j=0; j<item.size(); j++){
-                    sum += (int)item.get(j);
-                }
-                //5270487
-                if(sum>=120&&sum<=180){
-                    num_1 = (int)item.get(0);
-                    num_2 = (int)item.get(1);
-                    num_3 = (int)item.get(2);
-                    num_4 = (int)item.get(3);
-                    num_5 = (int)item.get(4);
-                    num_6 = (int)item.get(5);
-                    preparedStmt.setInt(1, num_1);
-                    preparedStmt.setInt(2, num_2);
-                    preparedStmt.setInt(3, num_3);
-                    preparedStmt.setInt(4, num_4);
-                    preparedStmt.setInt(5, num_5);
-                    preparedStmt.setInt(6, num_6);
-                    preparedStmt.execute();
-                    cnt++;
-                }
+                num_1 = (int)item.get(0);
+                num_2 = (int)item.get(1);
+                num_3 = (int)item.get(2);
+                num_4 = (int)item.get(3);
+                num_5 = (int)item.get(4);
+                num_6 = (int)item.get(5);
+                preparedStmt.setInt(1, num_1);
+                preparedStmt.setInt(2, num_2);
+                preparedStmt.setInt(3, num_3);
+                preparedStmt.setInt(4, num_4);
+                preparedStmt.setInt(5, num_5);
+                preparedStmt.setInt(6, num_6);
+                preparedStmt.execute();
+                cnt++;
 
             }
             System.out.println("cnt:" + cnt);
