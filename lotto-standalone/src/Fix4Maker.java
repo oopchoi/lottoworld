@@ -19,25 +19,22 @@ public class Fix4Maker {
 //        };
         int [][] input = {
                 {3,6,13,23,24,35,1},
-                {       3,4,12,20,24,34,41},
-                {       4,19,20,26,30,35,24},
-                {       1,3,18,32,40,41,16},
-                {       4,18,23,30,34,41,19},
-                {       13,19,20,32,38,42,4}
+                {3,4,12,20,24,34,41},
+                {4,19,20,26,30,35,24},
+                {1,3,18,32,40,41,16},
+                {4,18,23,30,34,41,19},
+                {13,19,20,32,38,42,4}
         };
 
         int cnt = 4;
-        int xCnt = 1;
-        int yCnt = 0;
-        int xLen = input[0].length; // 첫번째 열 개수
 
 
         System.out.println(input.length + "는 " + cnt + "보다 항상 크거나 같아야 한다.");
-        combination4(cnt, input, xCnt, yCnt, xLen);
+        combination4(cnt, input);
 
 
     }
-    private static void combination4(int cnt, int [][] input, int xCnt, int yCnt, int xLen){
+    private static void combination4(int cnt, int [][] input){
 
         ArrayList results = new ArrayList();
 
