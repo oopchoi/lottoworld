@@ -5,6 +5,13 @@ import java.io.*;
 import java.sql.*;
 import java.util.*;
 
+/*
+ * 1. test.txt 파일을 업데이트 한다
+ * 2. 회귀별 3회 이상 미출 조합을 종합하여 필출 필터로 사용하고 고정 4수를 Fix4Maker.java로 만든다.
+ * 3. 콜드수 필터를 만든다.
+ * 4. 고정5수, 제외5수 0~3 필터를 만든다.
+ * 5. 자동 0~4수 필터를 만든다.
+* */
 public class Main {
 
     // 회차별 당번
@@ -269,6 +276,13 @@ public class Main {
 
             completeCombo = filterEliminator.removeByArray(completeCombo, filterNumbers, 0, 3);
             System.out.println("0~3필터 제거 후 : " + completeCombo.size());
+
+            // 0~4개 필터 (완전자동 조합)
+            filterNumbers = new ArrayList();
+            filterNumbers.add(new int[]{1,2,3,4,5,6});
+
+            completeCombo = filterEliminator.removeByArray(completeCombo, filterNumbers, 0, 4);
+            System.out.println("0~4필터 제거 후 : " + completeCombo.size());
 
             // 최종 조합 디비에 넣기
             //insertCombo(completeCombo);
