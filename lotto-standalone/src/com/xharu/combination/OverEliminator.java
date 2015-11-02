@@ -12,12 +12,11 @@ public class OverEliminator implements Eliminator
         for(int i=list.size()-1; i>=0; i--) {
             ArrayList item = list.get(i);
             int[] count = new int[]{0,0,0,0,0};
-            int continueCount = 1;
             for(int j=0; j<item.size(); j++){
                 int x = (int) Math.floor((int) item.get(j) / 10);
                 count[x] += 1;
             }
-            if(count[0]>=(int)overCount.get(0) || count[1]>(int)overCount.get(0) || count[2]>(int)overCount.get(0) || count[3]>(int)overCount.get(0) || count[4]>(int)overCount.get(0)){
+            if(count[0]>=(int)overCount.get(0) || count[1]>=(int)overCount.get(0) || count[2]>=(int)overCount.get(0) || count[3]>=(int)overCount.get(0) || count[4]>=(int)overCount.get(0)){
                 list.remove(i);
             }
         }

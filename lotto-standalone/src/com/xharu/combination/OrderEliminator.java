@@ -19,7 +19,7 @@ public class OrderEliminator implements Eliminator {
                     if(x==y){
                         continueCount++;
                         //System.out.println("continueCount:"+continueCount);
-                        if(continueCount==orderCount.size()){
+                        if(continueCount==(int)orderCount.get(0)){
                             break;
                         }
                     }else{
@@ -28,7 +28,7 @@ public class OrderEliminator implements Eliminator {
 
                 }
             }
-            if(continueCount==orderCount.size()){
+            if(continueCount==(int)orderCount.get(0)){
                 list.remove(i);
             }
         }

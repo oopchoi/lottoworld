@@ -16,7 +16,8 @@ public class ArrayListConverter {
             int [] numbers = (int[])item.get(cnt++ + "");
             ArrayList numberList = new ArrayList();
             // 보너스 번호는 제거
-            for(int j=0; j<numbers.length-1; j++){
+            //for(int j=0; j<numbers.length-1; j++){
+            for(int j=0; j<numbers.length; j++){
                 numberList.add(numbers[j]);
             }
             returnList.add(numberList);
