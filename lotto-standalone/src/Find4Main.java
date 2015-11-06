@@ -122,15 +122,15 @@ public class Find4Main {
 
             // 제외수 필터
             filterNumbers = new ArrayList();
-            filterNumbers.add(new int[]{9,7,20,16,33,18});
+            filterNumbers.add(new int[]{9,7,20,16,33,18,25});
             completeCombo = filterEliminator.removeByArray(completeCombo, filterNumbers);
             System.out.println("제외수 제거 후 : " + completeCombo.size());
 
             // 0~4개 필터 (완전자동 조합)
-            filterNumbers = new ArrayList();
-            filterNumbers.add(new int[]{1,2,3,4,5,6});
-            completeCombo = filterEliminator.removeByArray(completeCombo, filterNumbers, 0, 4);
-            System.out.println("0~4필터 제거 후 : " + completeCombo.size());
+//            filterNumbers = new ArrayList();
+//            filterNumbers.add(new int[]{1,2,3,4,5,6});
+//            completeCombo = filterEliminator.removeByArray(completeCombo, filterNumbers, 0, 4);
+//            System.out.println("0~4필터 제거 후 : " + completeCombo.size());
 
             int [] arr = new int[]{4};
             completeCombo = getCombo(completeCombo, arr);
